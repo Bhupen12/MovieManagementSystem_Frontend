@@ -1,0 +1,91 @@
+<h1 mat-dialog-title>Add Movie</h1>
+
+<div mat-dialog-content style="padding-top: 4px">
+    <form [formGroup]="movieForm">
+        <mat-label>Movie Name<span class="required">*</span></mat-label>
+        <mat-form-field appearance="outline" style="margin-bottom: 18px">
+            <input formControlName="title" matInput placeholder="Name" />
+            <mat-error *ngIf="
+          movieForm.get('title')?.invalid && movieForm.get('title')?.touched
+        ">
+                <strong>Movie Name</strong> is required</mat-error>
+        </mat-form-field>
+
+        <mat-label>Genre<span class="required">*</span></mat-label>
+        <mat-form-field appearance="outline" style="margin-bottom: 18px">
+            <mat-select formControlName="genre" placeholder="Category">
+                <mat-option *ngFor="let genre of Genre" [value]="genre">{{
+                    genre
+                    }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="
+          movieForm.get('genre')?.invalid && movieForm.get('genre')?.touched
+        ">
+                <strong>Genre</strong> is required</mat-error>
+        </mat-form-field>
+
+        <mat-label>Release Year<span class="required">*</span></mat-label>
+        <mat-form-field appearance="outline" style="margin-bottom: 18px">
+            <input formControlName="releaseYear" matInput type="number" placeholder="Year" />
+            <mat-error *ngIf="
+          movieForm.get('releaseYear')?.invalid &&
+          movieForm.get('releaseYear')?.touched
+        ">
+                <strong>Release Year</strong> is required</mat-error>
+        </mat-form-field>
+
+        <!-- <mat-label>Director Name<span class="required">*</span></mat-label>
+        <mat-form-field appearance="outline" style="margin-bottom: 18px;">
+            <input formControlName="directorName" matInput type="text" [matAutocomplete]="directorAuto">
+            <mat-autocomplete #directorAuto="matAutocomplete">
+                <mat-option *ngFor="let item of filteredDirector" [value]="item">
+                    {{item}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-label>Lead Actor Name<span class="required">*</span></mat-label>
+        <mat-form-field appearance="outline" style="margin-bottom: 18px;">
+            <input formControlName="actorName" matInput type="text" [matAutocomplete]="actorAuto">
+            <mat-autocomplete #actorAuto="matAutocomplete">
+                <mat-option *ngFor="let item of filteredActor" [value]="item">
+                    {{item}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field> -->
+
+        <mat-label>Director Name<span class="required">*</span></mat-label>
+        <mat-form-field appearance="outline" style="margin-bottom: 18px">
+            <mat-select formControlName="directorID" placeholder="Director">
+                <mat-option *ngFor="let director of filteredDirector" [value]="director">{{
+                    director.name
+                    }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="
+          movieForm.get('directorID')?.invalid &&
+          movieForm.get('directorID')?.touched
+        ">
+                <strong>Director Name</strong> is required</mat-error>
+        </mat-form-field>
+
+        <mat-label>Lead Actor Name<span class="required">*</span></mat-label>
+        <mat-form-field appearance="outline" style="margin-bottom: 18px">
+            <mat-select formControlName="actorID" placeholder="Lead Actor">
+                <mat-option *ngFor="let actor of filteredActor" [value]="actor">{{
+                    actor.name
+                    }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="
+          movieForm.get('actorID')?.invalid &&
+          movieForm.get('actorID')?.touched
+        ">
+                <strong>Lead Actor Name</strong> is required</mat-error>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button style="margin-left: 8px" mat-raised-button color="primary" (click)="addMovie()">
+        {{ actionBtn }}
+    </button>
+</div>

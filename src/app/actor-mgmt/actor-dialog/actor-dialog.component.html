@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Add Actor</h1>
+
+<div mat-dialog-content style="padding-top: 4px">
+
+    <form [formGroup]="ActorForm">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Actor Name</mat-label>
+            <input formControlName="name" matInput placeholder="Name" />
+            <mat-error *ngIf="ActorForm.get('name')?.invalid && ActorForm.get('name')?.touched">
+                <strong>Actor Name</strong> is required</mat-error>
+        </mat-form-field>
+
+        <label for="">
+            <h1>Gender</h1>
+        </label>
+        <mat-radio-group formControlName="gender">
+            <mat-radio-button *ngFor="let gender of genderList" [value]="gender">
+                {{ gender }}
+            </mat-radio-button>
+        </mat-radio-group>
+
+    </form>
+
+</div>
+<div mat-dialog-actions [align]="'end'">
+
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button style="margin-left: 8px" mat-raised-button color="primary" (click)="addActor()">
+        {{ actionBtn }}
+    </button>
+    
+</div>
