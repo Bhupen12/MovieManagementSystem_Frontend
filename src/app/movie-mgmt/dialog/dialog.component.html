@@ -34,26 +34,6 @@
                 <strong>Release Year</strong> is required</mat-error>
         </mat-form-field>
 
-        <!-- <mat-label>Director Name<span class="required">*</span></mat-label>
-        <mat-form-field appearance="outline" style="margin-bottom: 18px;">
-            <input formControlName="directorName" matInput type="text" [matAutocomplete]="directorAuto">
-            <mat-autocomplete #directorAuto="matAutocomplete">
-                <mat-option *ngFor="let item of filteredDirector" [value]="item">
-                    {{item}}
-                </mat-option>
-            </mat-autocomplete>
-        </mat-form-field>
-
-        <mat-label>Lead Actor Name<span class="required">*</span></mat-label>
-        <mat-form-field appearance="outline" style="margin-bottom: 18px;">
-            <input formControlName="actorName" matInput type="text" [matAutocomplete]="actorAuto">
-            <mat-autocomplete #actorAuto="matAutocomplete">
-                <mat-option *ngFor="let item of filteredActor" [value]="item">
-                    {{item}}
-                </mat-option>
-            </mat-autocomplete>
-        </mat-form-field> -->
-
         <mat-label>Director Name<span class="required">*</span></mat-label>
         <mat-form-field appearance="outline" style="margin-bottom: 18px">
             <mat-select formControlName="directorID" placeholder="Director">

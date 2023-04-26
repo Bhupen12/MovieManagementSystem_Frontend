@@ -4,21 +4,19 @@
 
     <form [formGroup]="ActorForm">
 
-        <mat-form-field appearance="outline">
-            <mat-label>Actor Name</mat-label>
+        <mat-label>Actor Name<span class="required">*</span></mat-label>
+        <mat-form-field appearance="outline" style="width:100%">
             <input formControlName="name" matInput placeholder="Name" />
             <mat-error *ngIf="ActorForm.get('name')?.invalid && ActorForm.get('name')?.touched">
                 <strong>Actor Name</strong> is required</mat-error>
         </mat-form-field>
 
-        <label for="">
-            <h1>Gender</h1>
-        </label>
+        <mat-label>Gender<span class="required">*</span></mat-label>
         <mat-radio-group formControlName="gender">
             <mat-radio-button *ngFor="let gender of genderList" [value]="gender">
                 {{ gender }}
             </mat-radio-button>
-        </mat-radio-group>
+        </mat-radio-group>          
 
     </form>
 

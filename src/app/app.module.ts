@@ -25,8 +25,6 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatMenuModule} from '@angular/material/menu';
 import { ConformBtnComponent } from './movie-mgmt/conform-btn/conform-btn.component';
 import { ActorConformBtnComponent } from './actor-mgmt/actor-conform-btn/actor-conform-btn.component';
-import { DirectorMgmtComponent } from './director-mgmt/director-mgmt.component';
-import { DirectorDialogComponent } from './src/app/director-mgmt/director-dialog/director-dialog.component';
 
 
 @NgModule({
@@ -37,9 +35,7 @@ import { DirectorDialogComponent } from './src/app/director-mgmt/director-dialog
     ActorMgmtComponent,
     ActorDialogComponent,
     ConformBtnComponent,
-    ActorConformBtnComponent,
-    DirectorMgmtComponent,
-    DirectorDialogComponent,
+    ActorConformBtnComponent
   ],
   imports: [
     BrowserModule,

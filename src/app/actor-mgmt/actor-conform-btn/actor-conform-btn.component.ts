@@ -21,12 +21,12 @@ export class ActorConformBtnComponent {
     { }
 
     ngOnInit() {
-      // console.log(this.data);  
-      // this.api.getActorsbyID(this.data).subscribe({
-      //   next: (res)=>{
-      //     this.actorName = res.name;
-      //   }
-      // })
+      console.log(this.data);  
+      this.api.getActorbyID(this.data).subscribe({
+        next: (res)=>{
+          this.actorName = res.name;
+        }
+      })
     }
 
 
