@@ -3,18 +3,24 @@
     <span>Movie Actor Management</span>
     <span class="example-spacer"></span>
     <button 
+        color="warn" 
+        style="margin-right: 2%;"
+        mat-raised-button  
+        routerLink="/movie-mgmt">
+        Movie
+    </button>
+    <button 
         color="warn"
         style="margin-right: 2%;" 
         mat-raised-button 
         routerLink="/actor-mgmt">
         Actor
     </button>
-    
-    <button 
-        color="warn" 
-        mat-raised-button  
-        routerLink="/movie-mgmt">
-        Movie
+    <button
+        color="warn"
+        mat-raised-button
+        routerLink="/director-mgmt">
+        Director
     </button>
 </mat-toolbar>
 <router-outlet></router-outlet>

@@ -100,4 +100,13 @@ export class ApiService {
   getDirectorsbyID(id: number){
     return this.http.get<any>('http://localhost:5278/api/Directors/'+id);
   }
+  postDirector(data: any){
+    return this.http.post<any>('http://localhost:5278/api/Directors/', data);
+  }
+  putDirector(data: any, id: number){
+    return this.http.put<any>("http://localhost:5278/api/Directors/"+id, data);
+  }
+  deleteDirector(id: number){
+    return this.http.delete<any>("http://localhost:5278/api/directors/"+id);
+  }
 }
