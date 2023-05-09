@@ -1,0 +1,61 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header style="margin: auto">
+      <mat-card-title>
+        <h1>Register</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="userForm" class="example-form">
+      <mat-card-content style="display: flex; flex-direction: column">
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input formControlName="Email" matInput placeholder="Email" />
+        </mat-form-field>
+        <div class="requiredFirld" *ngIf="Email.errors?.['required'] && (Email.touched||Email.dirty)">
+          Email required
+        </div>
+        <div class="requiredFirld" *ngIf="Email.errors?.['email'] && (Email.touched||Email.dirty)">
+          Email is Invalid
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Username</mat-label>
+          <input formControlName="UserName" matInput placeholder="Username" />
+        </mat-form-field>
+        <div class="requiredFirld" *ngIf="UserName.errors?.['required'] && (UserName.touched||UserName.dirty)">
+          Username required
+        </div>
+        <div class="requiredFirld" *ngIf="UserName.errors?.['pattern'] && (UserName.touched||UserName.dirty)">
+          Username Should start with a Alphabate.
+        </div>
+        <div class="requiredFirld" *ngIf="UserName.errors?.['minlength']">
+          minimum 2 character required.
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input formControlName="Password" matInput placeholder="Password" />
+        </mat-form-field>
+        <div class="requiredFirld" *ngIf="Password.errors?.['required'] && Password.touched">
+          Password required
+        </div>
+        <div class="requiredFirld" *ngIf="Password.errors?.['minlength']">
+          minimum 2 character required.
+        </div>
+
+        <!-- <mat-form-field class="example-full-width">
+          <mat-label>Choose a role...</mat-label>
+          <mat-select>
+            <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+      </mat-card-content>
+      <button mat-stroked-button color="accent" class="btn-block" (click)="Register()" style="margin-top: 25px; width:50%;">
+        Register
+      </button>
+    </form>
+  </mat-card>
+  <div style="margin-top: 1rem">
+    Already have account?
+    <span><a routerLink="/Login" style="text-decoration: none; color: #ff4081"><b>Login</b></a></span>
+  </div>
+</div>

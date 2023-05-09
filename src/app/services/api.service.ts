@@ -109,4 +109,12 @@ export class ApiService {
   deleteDirector(id: number){
     return this.http.delete<any>("http://localhost:5278/api/directors/"+id);
   }
+
+
+  postUser(data: any){
+    return this.http.post<any>('http://localhost:5278/api/User/', data);
+  }
+  postLogin(data: any){
+    return this.http.post<any>('http://localhost:5278/api/User/LogIn', data);
+  }
 }

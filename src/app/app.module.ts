@@ -28,6 +28,15 @@ import { ActorConformBtnComponent } from './actor-mgmt/actor-conform-btn/actor-c
 import { DirectorMgmtComponent } from './director-mgmt/director-mgmt.component';
 import { DirectorDialogComponent } from './director-mgmt/director-dialog/director-dialog.component';
 import { DirectorConformBtnComponent } from './director-mgmt/director-conform-btn/director-conform-btn.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { RegisterComponent } from './components/register/register.component';
+
+
+import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCheckboxModule} from '@angular/material/checkbox';
+import { LoginComponent } from './components/login/login.component';
+
 
 
 @NgModule({
@@ -41,7 +50,10 @@ import { DirectorConformBtnComponent } from './director-mgmt/director-conform-bt
     ActorConformBtnComponent,
     DirectorMgmtComponent,
     DirectorDialogComponent,
-    DirectorConformBtnComponent
+    DirectorConformBtnComponent,
+    NavbarComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -62,9 +74,14 @@ import { DirectorConformBtnComponent } from './director-mgmt/director-conform-bt
     MatPaginatorModule,
     MatSortModule,
     MatAutocompleteModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTabsModule,
+    MatCardModule,
+    MatCheckboxModule
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
