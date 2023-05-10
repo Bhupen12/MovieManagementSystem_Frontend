@@ -13,6 +13,8 @@ export class RegisterComponent {
   Roles: any = ['Admin', 'Author', 'Reader'];
 
   userForm!: FormGroup;
+  isFormValid = false;
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -51,4 +53,13 @@ export class RegisterComponent {
   get UserName(): FormControl { return this.userForm.get('UserName') as FormControl; }
   get Password(): FormControl { return this.userForm.get('Password') as FormControl; }
   get Email(): FormControl { return this.userForm.get('Email') as FormControl; }
+
+  checkFormValidity() {
+    if (this.userForm.valid) {
+      this.isFormValid = true;
+    } else {
+      this.isFormValid = false;
+    }
+  }
+  
 }

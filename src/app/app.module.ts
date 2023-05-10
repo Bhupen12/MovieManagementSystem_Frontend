@@ -30,6 +30,8 @@ import { DirectorDialogComponent } from './director-mgmt/director-dialog/directo
 import { DirectorConformBtnComponent } from './director-mgmt/director-conform-btn/director-conform-btn.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
 
 
 import { MatCardModule } from '@angular/material/card';
@@ -80,7 +82,8 @@ import { LoginComponent } from './components/login/login.component';
     MatCheckboxModule
   ],
   providers: [
-    
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

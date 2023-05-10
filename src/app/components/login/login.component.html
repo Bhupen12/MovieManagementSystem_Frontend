@@ -6,21 +6,34 @@
       </mat-card-title>
     </mat-card-header>
     <form [formGroup]="loginForm" class="example-form">
+
       <mat-card-content style="display: flex; flex-direction:column">
+
         <mat-form-field class="example-full-width">
           <mat-label>Username</mat-label>
           <input formControlName="UserName" matInput placeholder="Username">
         </mat-form-field>
-        <div class="requiredFirld" *ngIf="UserName.errors?.['required'] && (UserName.touched||UserName.dirty)">Username
-          required</div>
+        <mat-error 
+            class="requiredFirld" 
+            *ngIf="UserName.errors?.['required'] && (UserName.touched||UserName.dirty)">
+          Username required
+        </mat-error>
+          
         <mat-form-field class="example-full-width">
           <mat-label>Password</mat-label>
           <input formControlName="Password" matInput placeholder="******">
         </mat-form-field>
-        <div class="requiredFirld" *ngIf="Password.errors?.['required'] && Password.touched">Password required</div>
+        <mat-error 
+            class="requiredFirld" 
+            *ngIf="Password.errors?.['required'] && Password.touched">
+          Password required
+        </mat-error>
+
       </mat-card-content>
+      
       <button mat-stroked-button color="accent" class="btn-block" (click)="login()"
         style="margin-top: 25px; width:50%;">Log in</button>
+
     </form>
   </mat-card>
   <div style="margin-top: 1rem;">Don't have account? <span><a routerLink="/Register"

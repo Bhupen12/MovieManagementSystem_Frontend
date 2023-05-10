@@ -6,6 +6,7 @@ import { DirectorMgmtComponent } from './director-mgmt/director-mgmt.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -16,18 +17,22 @@ const routes: Routes = [
   {
     path: 'movie-mgmt',
     component: MovieMgmtComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'actor-mgmt',
     component: ActorMgmtComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'director-mgmt',
     component: DirectorMgmtComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'navbar',
     component: NavbarComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'Login',

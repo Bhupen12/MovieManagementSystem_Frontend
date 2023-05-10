@@ -1,5 +1,6 @@
 import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,13 @@ export class NavbarComponent {
 
   title = 'MovieActorMgmt';
 
-  constructor(private elRef: ElementRef,private renderer: Renderer2, private router: Router) {
+  constructor(
+    private elRef: ElementRef,
+    private renderer: Renderer2, 
+    private router: Router,
+    private authService: AuthService
+    ) {
+
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         const currentUrl = event.url;
@@ -41,6 +48,10 @@ export class NavbarComponent {
         }
       }
     });
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
 }
