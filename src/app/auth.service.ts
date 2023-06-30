@@ -13,12 +13,19 @@ export class AuthService {
         private router: Router
     ) { }
 
+
+    getToken(): string | null {
+        return localStorage.getItem(this.tokenKey);
+        }
+
     setToken(token: string): void {
         localStorage.setItem(this.tokenKey, token);
         }
     
-    getToken(): string | null {
-        return localStorage.getItem(this.tokenKey);
+
+    verifyToken(token: string): boolean {
+        const storedToken = localStorage.getItem(this.tokenKey);
+        return token === storedToken;
         }
 
     removeToken(): void {
@@ -26,7 +33,11 @@ export class AuthService {
         }
 
     isAuthentificated(): boolean {
-        return this.getToken() !== null;
+        const token = this.getToken();
+        if (token) {
+            return this.verifyToken(token);
+            }
+        return false;
         }
     
     logout(): void {

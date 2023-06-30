@@ -1,6 +1,6 @@
 import { Component, OnInit, Injectable, Inject } from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
 
@@ -29,7 +29,9 @@ export class RegisterComponent {
       UserName: new FormControl("",[Validators.required,
         Validators.minLength(2), 
         Validators.pattern('^[a-zA-Z].*')]),
-      Password: new FormControl("",[Validators.required,Validators.minLength(2)]),
+      Password: new FormControl("",[Validators.required,
+        Validators.minLength(6),
+        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&].*')]),
     });
   }
 

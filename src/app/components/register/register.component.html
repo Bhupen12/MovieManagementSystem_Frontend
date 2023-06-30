@@ -41,8 +41,11 @@
         <div class="requiredFirld" *ngIf="Password.errors?.['required'] && Password.touched">
           Password required
         </div>
-        <div class="requiredFirld" *ngIf="Password.errors?.['minlength']">
-          minimum 2 character required.
+        <div class="requiredFirld" *ngIf="Password.errors?.['minlength']" >
+          minimum 6 character required.
+        </div>
+        <div class="requiredFirld" *ngIf="Password.errors?.['pattern'] && !Password.errors?.['minlength']">
+          UpperCase, LowerCase, Number and Special Character required.
         </div>
 
       </mat-card-content>

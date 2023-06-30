@@ -9,33 +9,43 @@
 
       <mat-card-content style="display: flex; flex-direction:column">
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field appearance="outline" class="example-full-width">
           <mat-label>Username</mat-label>
           <input formControlName="UserName" matInput placeholder="Username">
+          <mat-error 
+              class="requiredFirld" 
+              *ngIf="UserName.errors?.['required'] && (UserName.touched||UserName.dirty)">
+            Username required
+          </mat-error>
         </mat-form-field>
-        <mat-error 
-            class="requiredFirld" 
-            *ngIf="UserName.errors?.['required'] && (UserName.touched||UserName.dirty)">
-          Username required
-        </mat-error>
           
-        <mat-form-field class="example-full-width">
+        <mat-form-field appearance="outline" class="example-full-width">
           <mat-label>Password</mat-label>
           <input formControlName="Password" matInput placeholder="******">
+          <mat-error 
+              class="requiredFirld" 
+              *ngIf="Password.errors?.['required'] && Password.touched">
+            Password required
+          </mat-error>
         </mat-form-field>
-        <mat-error 
-            class="requiredFirld" 
-            *ngIf="Password.errors?.['required'] && Password.touched">
-          Password required
-        </mat-error>
-
       </mat-card-content>
       
-      <button mat-stroked-button color="accent" class="btn-block" (click)="login()"
-        style="margin-top: 25px; width:50%;">Log in</button>
-
+      <!-- <button mat-stroked-button color="accent" class="btn-block cta" (click)="login()"
+        >Log In</button> -->
+        <!-- style="margin-top: 25px; width:50%;" -->
+        <div style="margin-top: 18px;">
+          <a (click)="login()" class="cta">
+            <span>Log In</span>
+          </a>
+        </div>
     </form>
   </mat-card>
-  <div style="margin-top: 1rem;">Don't have account? <span><a routerLink="/Register"
-        style="text-decoration: none;color: #ff4081;"><b>Register</b></a></span></div>
+  <div style="margin-top: 1rem;"><h4>
+    Don't have account? 
+    <span>
+      <a class="registerBtn" routerLink="/Register">
+        <b>Register</b>
+      </a>
+    </span>
+  </h4></div>
 </div>
