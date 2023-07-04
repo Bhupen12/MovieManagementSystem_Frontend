@@ -10,13 +10,13 @@ export class ApiService {
   constructor(private http : HttpClient) { }
 
   getActorData(){
-    return this.http.get<any>('http://localhost:5278/api/actor/')
+    return this.http.get<any>('http://localhost:5162/api/actor/')
     .pipe(
       map((response:[]) => response.map(item => item['name']))
     );
   }
   getDirectorData(){
-    return this.http.get<any>('http://localhost:5278/api/directors/')
+    return this.http.get<any>('http://localhost:5162/api/directors/')
     .pipe(
       map((response:[]) => response.map(item => item['name']))
     );
@@ -24,7 +24,7 @@ export class ApiService {
 
   getActorId(actorName: string): Promise<string> {
     return new Promise<string>((resolve, reject) => {
-      this.http.get<any>('http://localhost:5278/api/actor/search', { params: { name: actorName } })
+      this.http.get<any>('http://localhost:5162/api/actor/search', { params: { name: actorName } })
         .subscribe({
           next: (response) => {
             if (response && response.length > 0) {
@@ -42,7 +42,7 @@ export class ApiService {
 
   getDirectorId(directorName: string): Promise<string>{
     return new Promise<string>((resolve,reject)=>{
-      this.http.get<any>('http://localhost:5278/api/directors/search',{ params: {name: directorName}})
+      this.http.get<any>('http://localhost:5162/api/directors/search',{ params: {name: directorName}})
         .subscribe({
           next: (response) => {
             if (response && response.length > 0) {
@@ -59,62 +59,64 @@ export class ApiService {
   }
 
   postMovie(data: any){
-    return this.http.post<any>('http://localhost:5278/api/movie/', data);
+    return this.http.post<any>('http://localhost:5162/api/movies/', data);
   }
   getMovies(){
-    return this.http.get<any>('http://localhost:5278/api/movie/');
+    return this.http.get<any>('http://localhost:5162/api/movies/');
   }
   getMoviebyID(id: number){
-    return this.http.get<any>('http://localhost:5278/api/movie/'+id);
+    return this.http.get<any>('http://localhost:5162/api/movies/'+id);
   }
   putMovie(data: any, id: number){
-    return this.http.put<any>("http://localhost:5278/api/movie/"+id, data);
+    return this.http.put<any>("http://localhost:5162/api/movies/"+id, data);
   }
   deleteMovie(id: number){
-    return this.http.delete<any>("http://localhost:5278/api/movie/"+id);
+    return this.http.delete<any>("http://localhost:5162/api/movies/"+id);
   }
 
 
 
   getActors(){
-    return this.http.get<any>('http://localhost:5278/api/actor/');
+    return this.http.get<any>('http://localhost:5162/api/actor/');
   }
   getActorbyID(id: number){
-    return this.http.get<any>('http://localhost:5278/api/actor/'+id);
+    return this.http.get<any>('http://localhost:5162/api/actor/'+id);
   }
   postActor(data: any){
-    return this.http.post<any>('http://localhost:5278/api/actor/', data);
+    return this.http.post<any>('http://localhost:5162/api/actor/', data);
   }
   putActor(data: any, id: number){
-    return this.http.put<any>("http://localhost:5278/api/actor/"+id, data);
+    return this.http.put<any>("http://localhost:5162/api/actor/"+id, data);
   }
   deleteActor(id: number){
-    return this.http.delete<any>("http://localhost:5278/api/actor/"+id);
+    return this.http.delete<any>("http://localhost:5162/api/actor/"+id);
   }
 
 
 
   getDirectors(){
-    return this.http.get<any>('http://localhost:5278/api/directors/');
+    return this.http.get<any>('http://localhost:5162/api/directors/');
   }  
   getDirectorsbyID(id: number){
-    return this.http.get<any>('http://localhost:5278/api/Directors/'+id);
+    return this.http.get<any>('http://localhost:5162/api/Directors/'+id);
   }
   postDirector(data: any){
-    return this.http.post<any>('http://localhost:5278/api/Directors/', data);
+    return this.http.post<any>('http://localhost:5162/api/Directors/', data);
   }
   putDirector(data: any, id: number){
-    return this.http.put<any>("http://localhost:5278/api/Directors/"+id, data);
+    return this.http.put<any>("http://localhost:5162/api/Directors/"+id, data);
   }
   deleteDirector(id: number){
-    return this.http.delete<any>("http://localhost:5278/api/directors/"+id);
+    return this.http.delete<any>("http://localhost:5162/api/directors/"+id);
   }
 
 
   postUser(data: any){
-    return this.http.post<any>('http://localhost:5278/api/User/', data);
+    console.log("api : "+data.UserName+" "+data.Password+" "+data.Email);
+    
+    return this.http.post<any>('http://localhost:5162/api/User/', data);
   }
   postLogin(data: any){
-    return this.http.post<any>('http://localhost:5278/api/User/LogIn', data);
+    return this.http.post<any>('http://localhost:5162/api/User/LogIn', data);
   }
 }

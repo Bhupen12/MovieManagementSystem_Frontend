@@ -36,8 +36,8 @@ export class RegisterComponent {
   }
 
   Register(){
+    console.log(this.userForm.value);
     this.api.postUser(this.userForm.value).subscribe(res => {
-      console.log(res);
       alert('User created successfully!');
       localStorage.setItem('token', res.token);
       console.log('token: ',res.token);
